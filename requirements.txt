@@ -1,0 +1,4 @@
+django==1.11.6
+celery==4.1.0
+grpcio==1.7.0
+grpcio_tools==1.7.0
