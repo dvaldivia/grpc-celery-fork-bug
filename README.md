@@ -5,13 +5,13 @@ Some repo that reproduces the grpc hanging from celery tasks.
 Install
 =====
 
-Create a virtualenv, activate it and install reqs.
+install reqs
 
 ```
-virtualenv pyenv
-source pyenv/bin/activate
 pip install -r requirements.txt
 ```
+
+Perform all the following steps in different terminals with the same environment
 
 Start the grpc server
 
@@ -19,6 +19,14 @@ Start the grpc server
 cd grpc-server/
 python serve.py
 ```
+
+
+Start a rabbitmq as broker
+
+```
+docker run -it -d -p 5672:5672 -p 15672:15672 rabbitmq
+```
+
 
 Start the celery server
 
