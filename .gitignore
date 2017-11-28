@@ -1,3 +1,4 @@
 .idea
 pyenv
+pyenv3
 *.pyc

@@ -15,7 +15,8 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import grpc
 
-from pinger.stubs import ping_pb2_grpc
+# from pinger.stubs import ping_pb2_grpc
+from stubs import ping_pb2_grpc
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -29,7 +30,7 @@ SECRET_KEY = '62)x7#mpmp=sahf52k=ez5(34kmj$)$mzn)ensdjw2g#==djt-'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["0.0.0.0"]
 
 
 # Application definition
@@ -129,3 +130,6 @@ PING_PORT = os.environ.get('PING_PORT', 50051)
 PING_DEFAULT_TIMEOUT = float(os.environ.get('PING_TIMEOUT', 1.0))
 PING_CHANNEL = grpc.insecure_channel("{}:{}".format(PING_HOSTNAME, PING_PORT))
 PING_STUB = ping_pb2_grpc.PingServiceStub(PING_CHANNEL)
+
+CELERYD_TASK_TIME_LIMIT = 10.0
+CELERYD_TASK_SOFT_TIME_LIMIT = 10.0
